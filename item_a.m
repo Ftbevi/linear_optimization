@@ -1,10 +1,13 @@
 clear all;
 clc;
 
+% Variaveis do problema.
 disciplinas_m = 10;
 professores_n = 5;
-% criar matrix a
-A = zeros(disciplinas_m, disciplinas_m * professores_n);
+quantidade_de_variaveis = disciplinas_m * professores_n;
+
+% Criar matrix A.
+A = zeros(disciplinas_m, quantidade_de_variaveis);
 marcador = 0;
 for i = 1: disciplinas_m
   for j = 1:professores_n
@@ -13,12 +16,12 @@ for i = 1: disciplinas_m
    marcador += 5;
 endfor
 
-% criar vetor b
+% Criar vetor b.
 b = ones(1, disciplinas_m);
 
-% carregar vetor c
+% Carregar vetor c.
 aux = load('alocacao.txt');
-c = zeros(1, disciplinas_m * professores_n);
+c = zeros(1, quantidade_de_variaveis);
 marcador_aux = 0;
 for i = 1: disciplinas_m
   for j = 1: professores_n
